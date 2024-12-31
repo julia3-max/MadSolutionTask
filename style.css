@@ -1,0 +1,118 @@
+
+*{
+    font-family:cursive;
+
+}
+section{
+    height: 100vh;
+    padding: 0%;
+            margin: 0%;
+            display: flex; 
+            justify-content: center; 
+            align-items: center;
+          background-image: linear-gradient(rgb(191, 168, 254), rgb(192, 182, 249), rgb(187, 200, 250), rgb(121, 199, 255));
+       }
+
+.screan{
+    width: 600px;
+    background-color: rgb(241, 241, 241);
+    border-radius: 15px;
+    text-align: center;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    border: solid 20px rgb(45, 43, 40);
+    position: relative;
+
+}
+
+.tv2{
+    width: 275px;
+    height: 20px;
+    background-color: rgb(45, 43, 40);
+    margin: auto;
+    margin-top: 8px;
+    border-radius: 50px;
+}
+.controller{
+    margin: auto;
+    margin-top: 50px;
+    text-align: center;
+  
+}
+button{
+    background: none;
+    border: none;
+   
+}
+button img{
+    cursor: pointer;
+    transition: 0.5s;
+
+}
+button img:hover{
+    width: 125px;
+}
+
+.file{
+    margin: 8px;
+    display: inline-block;
+    cursor: pointer;
+}
+input{
+    display: none;
+}
+.output{
+    position: absolute; 
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color:black;
+    background-size: cover;
+    background-position: center;
+    z-index: 2;
+    display: none;
+    text-align: center;
+
+}
+.icon {
+    width: 100px; 
+    height: 100px; 
+    transition: 0.7s;
+    
+}
+
+.cam{
+   color:  rgb(58, 129, 153); width: 160px;
+   height: 160px;
+   border-radius: 18px;
+   background-color: rgb(125, 205, 232);
+}
+.vid{
+    color:  rgb(205, 98, 52); width: 160px;
+    height: 160px;
+    border-radius: 18px;
+    background-color: rgb(255, 180, 147);
+ }
+ .au{
+    color: rgb(66, 159, 70); width: 160px;
+    height: 160px;
+    border-radius: 18px;
+    background-color: rgb(153, 216, 156);
+ }
+ .media{
+    position: static;
+ }
+ 
+ .image{
+    position: absolute; 
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('img/static.jpg'); 
+            background-size: cover; 
+            background-position: center;
+            z-index:4;
+ }
+ 

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body>
+
+    <section id="section">
+        <!--tv-->
+    <div class="tv">
+
+        <div class="screan">
+
+          
+            
+
+        <div class="media"> 
+        <div class="image" id="static"></div>
+        <div class="output" id="output"></div>
+
+            <div class="file cam" id="pic"><i class="bi bi-camera" style="font-size: 100px; "></i></div>
+           
+
+            <div class="file vid"  id="vid"><i class="bi bi-camera-video" style="font-size: 100px; "  ></i></div>
+            
+
+            <div class="file au"  id="au"><i class="bi bi-mic" style="font-size: 100px; "  ></i></div>
+            <input type="file"  id="fileInput">
+
+           
+        </div>
+       
+        </div>
+        <div class="tv2"></div>
+        <div class="controller">
+          <button onclick="toggleImage()" ><img src="img/control.png" alt="" width="100px" id="controller"></button>
+          </div>
+      </div>
+      <!--tv end-->
+
+      </section>
+      
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script>
+        const img = document.getElementById('static');
+        const button = document.getElementById('controller');
+    
+        function toggleImage() {
+          
+            if (img.style.display === "none") {
+                location.reload();
+            } else {
+                img.style.display = "none";
+            }
+        }
+
+        const fileInput = document.getElementById('fileInput');
+        const output = document.getElementById('output');
+        const section = document.getElementById('section');
+
+        
+
+        function handleFileChange(event) {
+            const file = event.target.files[0];
+            output.innerHTML = ''; 
+            output.style.display = 'block';
+            section.style.backgroundImage = 'linear-gradient(rgb(85, 21, 67), rgb(130, 35, 103),rgb(162, 60, 133), rgb(241, 141, 235))';
+
+            if (file) {
+                const fileURL = URL.createObjectURL(file);
+
+                if (file.type.startsWith('image/')) {
+                    const img = document.createElement('img');
+                    img.src = fileURL;
+                    img.style.maxWidth = '500px'; 
+                    img.style.maxHeight = '295px'; 
+                    output.appendChild(img);
+                } else if (file.type.startsWith('video/')) {
+                    const video = document.createElement('video');
+                    video.src = fileURL;
+                    video.controls = true;
+                    video.style.maxWidth = '500px';
+                    video.style.maxHeight = '295px'; 
+                    output.appendChild(video);
+                } else if (file.type.startsWith('audio/')) {
+                    const audio = document.createElement('audio');
+                    audio.src = fileURL;
+                    audio.controls = true;
+                    output.appendChild(audio);
+                    audio.style.marginTop='100px';
+                    audio.style.width='400px';
+                }
+            }
+        }
+
+        document.getElementById('pic').addEventListener('click', function() {
+            fileInput.accept = 'image/*';
+            fileInput.click();
+        });
+
+        document.getElementById('vid').addEventListener('click', function() {
+            fileInput.accept = 'video/*';
+            fileInput.click();
+        });
+
+        document.getElementById('au').addEventListener('click', function() {
+            fileInput.accept = 'audio/*';
+            fileInput.click();
+        });
+
+        fileInput.addEventListener('change', handleFileChange);
+    </script>
+</body>
+</html>
